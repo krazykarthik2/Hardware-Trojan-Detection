@@ -34,4 +34,5 @@ There is also a mode that runs all four algorithms consecutively, and produces a
 
 ## Authors
 
-* **Konstantinos Kalais**, *Developer* 
+* **Karthik Goparaju**, *Developer*
+* Note: I do not own this concept or copyright I just made this to improve my knowledge, there already exists n no.of solutions for this problem
