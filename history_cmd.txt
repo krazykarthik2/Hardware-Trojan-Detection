@@ -1,0 +1,5 @@
+py -m venv venv
+echo "venv" > .gitignore
+echo "pandas matplotlib keras scikit-learn numpy more-tertools seaborn xgboost" > requirements.txt
+cd venv/Scripts && activate && cd ../../
+pip install -r requirements.txt
