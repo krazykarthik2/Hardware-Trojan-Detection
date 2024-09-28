@@ -7,7 +7,7 @@ def predict(model):
     This function performs classification with logistic regression.
     """
     # load model
-    with open('models/'+model, 'rb') as f:
+    with open(model, 'rb') as f:
         clf = pickle.load(f)
 
     input__ = prepare_predict_data()

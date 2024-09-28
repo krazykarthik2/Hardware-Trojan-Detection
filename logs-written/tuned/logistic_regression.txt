@@ -1,0 +1,28 @@
+Label 0      0
+1      1
+2      1
+3      1
+4      1
+      ..
+902    1
+903    1
+904    1
+905    1
+906    1
+Name: Label, Length: 906, dtype: int32
+Saved scaler to disk as minmax_scaler.pkl
+### Logistic Regression ###
+
+Training lasted 0.02 seconds
+Accuracy = 98.90
+Fitting 5 folds for each of 4032 candidates, totalling 20160 fits
+Saved model to disk as logistic_regression.pkl
+### Param tuned Logistic Regression ###
+
+Training lasted 112.88 seconds
+Accuracy = 98.90
+Best parameters:  {'C': 0.0001, 'class_weight': None, 'fit_intercept': True, 'max_iter': 100, 'penalty': 'l1', 'solver': 'saga', 'tol': 0.0001}
+### Difference ###
+
+extra time in training(tuned-orig): 112.86
+Difference in accuracy(tuned-orig): 0.00

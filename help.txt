@@ -1,0 +1,22 @@
+# Welcome to the help guide
+Commands:
+    |--svm:
+        ->trains svm model and uses GridSearchCV to finetune params and analyses difference between train_time and accuracy of the model
+    |--random_forest:
+        ->trains random_forest model and uses GridSearchCV to finetune params and analyses difference between train_time and accuracy of the model
+    |--mlp:
+        ->trains mlp model and uses GridSearchCV to finetune params and analyses difference between train_time and accuracy of the model
+    |--gradient_boosting:
+        ->trains gradient_boosting model and uses GridSearchCV to finetune params and analyses difference between train_time and accuracy of the model
+    |--k_neighbors:
+        ->trains k_neighbors model and uses GridSearchCV to finetune params and analyses difference between train_time and accuracy of the model
+    |--logistic_regression:
+        ->trains logistic_regression model and uses GridSearchCV to finetune params and analyses difference between train_time and accuracy of the model
+    |--xgboost:
+        ->trains xgboost model and uses GridSearchCV to finetune params and analyses difference between train_time and accuracy of the model
+    |--comparative:
+        ->compares all the models, i.e., 
+            svm,random_forest,mlp,gradient_boosting,k_neighbors,logistic_regression,xgboost
+        ->with fine tuning and shows comparative analysis
+    |--predict:
+        ->trains predict model and uses GridSearchCV to finetune params and analyses difference between train_time and accuracy of the model

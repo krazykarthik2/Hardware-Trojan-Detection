@@ -8,4 +8,4 @@ xgboost
 tensorflow
 np_utils
 openpyxl
-pickle
+scikeras

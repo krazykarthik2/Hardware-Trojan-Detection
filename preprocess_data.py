@@ -58,7 +58,7 @@ def prepare_data():
     data.drop(columns=['Circuit'], inplace=True)
 
     data = create_numerics(data)
-    print(data)
+    
     data = shuffle(data, random_state=42)
 
     # Create correlation matrix
@@ -74,8 +74,6 @@ def prepare_data():
     # Drop features
     data = data.drop(data[to_drop], axis=1)
 
-    # Tell what data to input 
-    print(data.columns)
     
     y = pd.DataFrame(data["Label"]).values
     x = data.drop(["Label"], axis=1)
