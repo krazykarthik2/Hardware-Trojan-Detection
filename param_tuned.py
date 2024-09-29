@@ -19,9 +19,8 @@ import pickle
 from predict import predict
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score
-import warnings
 from scikeras.wrappers import KerasClassifier
-
+from sklearn.metrics import confusion_matrix
 def plot_confusion_matrix(cm, target_names, title, cmap=None, normalize=False):
     if cmap is None:
         cmap = plt.get_cmap('Blues')
@@ -466,13 +465,10 @@ def gradient_boosting():
     # Define the parameter grid for tuning Gradient Boosting
     param_grid = {
         'n_estimators': [50, 100, 200, 300, 500],  # Number of boosting stages to be run
-        'learning_rate': [0.01, 0.05, 0.1, 0.2, 0.3],  # Step size shrinkage used in update to prevent overfitting
-        'max_depth': [3, 4, 5, 6, 7, 8, 9, 10],  # Maximum depth of the individual estimators
+        'learning_rate': [ 0.05, 0.1, 0.2],  # Step size shrinkage used in update to prevent overfitting
+        'max_depth': [3,  5, 7, 9,  11],  # Maximum depth of the individual estimators
         'min_samples_split': [2, 5, 10],  # Minimum number of samples required to split an internal node
-        'min_samples_leaf': [1, 2, 4, 6, 8],  # Minimum number of samples required to be at a leaf node
-        'subsample': [0.6, 0.8, 1.0],  # Fraction of samples to be used for fitting the individual base learners
-        'max_features': ['auto', 'sqrt', 'log2'],  # Number of features to consider when looking for the best split
-        'loss': ['deviance', 'exponential'],  # Loss function to be optimized
+        'max_features': [ 'sqrt', 'log2'],  # Number of features to consider when looking for the best split
     }
 
 
@@ -580,7 +576,6 @@ def support_vector_machine():
 
 # main
 if __name__ == '__main__':
-    warnings.filterwarnings("ignore")
     # Define the user's preferred method
     if sys.argv[1] == 'svm':
         svm_time, svm_accuracy = support_vector_machine()
