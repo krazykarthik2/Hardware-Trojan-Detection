@@ -129,14 +129,11 @@ def multilayer_perceptron():
     param_grid = {
         'hidden_layer_sizes': [(10,), (50,), (100,), (10, 10), (50, 50), (100, 100)],  # Number of neurons in each hidden layer
         'activation': ['identity', 'logistic', 'tanh', 'relu'],  # Activation function for the hidden layer
-        'solver': ['lbfgs', 'sgd', 'adam'],  # The solver for weight optimization
-        'alpha': [0.0001, 0.001, 0.01, 0.1, 1.0],  # L2 penalty (regularization term)
+         'alpha': [ 0.001, 0.1, 1.0],  # L2 penalty (regularization term)
         'learning_rate': ['constant', 'invscaling', 'adaptive'],  # Learning rate schedule for weight updates
-        'learning_rate_init': [0.001, 0.01, 0.1],  # Initial learning rate
-        'max_iter': [200, 300, 400, 500],  # Maximum number of iterations
-        'early_stopping': [True, False],  # Whether to use early stopping to terminate training
-        'validation_fraction': [0.1, 0.2],  # Proportion of training data to set aside as validation set for early stopping
-    }
+        'learning_rate_init': [0.001,  0.1],  # Initial learning rate
+        'max_iter': [200, 30, 500],  # Maximum number of iterations
+        }
 
     # Set up GridSearchCV
     grid_search = GridSearchCV(estimator=model, param_grid=param_grid,
@@ -193,15 +190,13 @@ def xgboost():
     
     # Define the parameter grid for tuning XGBoost
     param_grid = {
-        'n_estimators': [50, 100, 200, 300, 500],  # Number of boosting rounds
-        'learning_rate': [0.01, 0.05, 0.1, 0.2, 0.3],  # Step size shrinkage
-        'max_depth': [3, 4, 5, 6, 7, 8, 9, 10],  # Maximum depth of a tree
-        'min_child_weight': [1, 2, 3, 4, 5],  # Minimum sum of instance weight (hessian) needed in a child
-        'gamma': [0, 0.1, 0.2, 0.3, 0.4],  # Minimum loss reduction required to make a further partition
+        'n_estimators': [50,  200, 500],  # Number of boosting rounds
+        'learning_rate': [0.01,  0.1,  0.3],  # Step size shrinkage
+        'max_depth': [3, 6,  9],  # Maximum depth of a tree
+        'min_child_weight': [1,  3,  5],  # Minimum sum of instance weight (hessian) needed in a child
+        'gamma': [0,  0.2,  0.4],  # Minimum loss reduction required to make a further partition
         'subsample': [0.6, 0.8, 1.0],  # Fraction of samples to be used for each tree
-        'colsample_bytree': [0.6, 0.8, 1.0],  # Fraction of features to be used for each tree
-        'scale_pos_weight': [1, 2, 3, 4, 5],  # Controls the balance of positive and negative weights
-        'objective': ['binary:logistic', 'multi:softmax'],  # Specify the learning task and corresponding objective
+        'scale_pos_weight': [1, 3, 5],  # Controls the balance of positive and negative weights
     }
 
     # Set up GridSearchCV
@@ -336,11 +331,9 @@ def random_forest():
     # Define the parameter grid for tuning Random Forest
     param_grid = {
         'n_estimators': [50, 100, 200, 300, 500],  # Number of trees in the forest
-        'max_features': ['auto', 'sqrt', 'log2'],  # Number of features to consider at each split
-        'max_depth': [None, 10, 20, 30, 40, 50],  # Maximum depth of the tree
+        'max_features': ['sqrt', 'log2'],  # Number of features to consider at each split
+        'max_depth': [ 10, 20, 30, 40, 50],  # Maximum depth of the tree
         'min_samples_split': [2, 5, 10],  # Minimum number of samples required to split an internal node
-        'min_samples_leaf': [1, 2, 4, 6, 8],  # Minimum number of samples required to be at a leaf node
-        'bootstrap': [True, False],  # Whether bootstrap samples are used when building trees
         'class_weight': [None, 'balanced'],  # Weights associated with classes
         'criterion': ['gini', 'entropy'],  # Function to measure the quality of a split
     }
